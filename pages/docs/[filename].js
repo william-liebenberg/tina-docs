@@ -2,7 +2,6 @@ import DocLayout from "../../components/DocLayout";
 import { sideMenuItems } from "../../utils/mdxUtils";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
 import { Button } from "../../components";
-import FeaturesBlock from "../../blocks/features-block";
 import Callout from "../../blocks/callout-block";
 import ReactPlayer from "react-player/lazy";
 import Page404 from "../404.js";
@@ -39,9 +38,19 @@ function DocPage(props) {
     const sideNav = sideMenuItems(data);
     return (
       <DocLayout title={data.docs.title} navGroups={sideNav}>
+        {
+        /* <h1 data-tina-field={tinaField(data, 'title')}>{data.docs.title}</h1>
+        <p data-tina-field={tinaField(data, 'intro')}>{data.docs.intro}</p>
+        <div data-tina-field={tinaField(data, 'body')}>
+          <TinaMarkdown components={components} content={data.docs.body} />
+        </div> */
+        }
         <h1>{data.docs.title}</h1>
         <p>{data.docs.intro}</p>
-        <TinaMarkdown components={components} content={data.docs.body} />
+        <div>
+          <TinaMarkdown components={components} content={data.docs.body} />
+        </div>
+        
       </DocLayout>
     );
   } else {
