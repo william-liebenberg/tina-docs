@@ -1,6 +1,7 @@
 query documentQuery($relativePath: String!) {
   docs(relativePath: $relativePath) {
     title
+    intro
     body
   }
   docsConnection {
